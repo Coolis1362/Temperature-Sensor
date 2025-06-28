@@ -68,12 +68,12 @@ void loop() {
   Serial.println(" " + label);
 
   if (tempC >= tempThreshold) {
-  Serial.print("TOO HOT: TEMPERATURE IS OR HIGHER THAN 30.00 °C\n");
+  Serial.print("TOO HOT: TEMPERATURE IS OR HIGHER THAN 30.00 °C OR 86 °F OR 303.15 K\n");
   buzzer.tone(1500, 1000);
 } 
  else if (tempC <= 0.00)
  {
-  Serial.print("TOO COLD: TEMPERATURE IS OR LOWER THAN 0.00 °C\n");
+  Serial.print("TOO COLD: TEMPERATURE IS OR LOWER THAN 0.00 °C OR 32 °F OR 273.15 K\n");
   buzzer.tone(1500, 1000);
  }
 else {

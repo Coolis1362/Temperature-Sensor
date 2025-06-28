@@ -62,7 +62,6 @@ void loop() {
     break;
 }
 
-
   // Output result
   Serial.print("Temp: ");
   Serial.print(displayTemp, 2);

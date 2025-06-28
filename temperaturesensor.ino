@@ -3,6 +3,7 @@
 ModulinoThermo thermo;
 ModulinoButtons buttons;
 ModulinoBuzzer buzzer;
+ModulinoPixels pixels;
 
 #define BUTTON_A 0
 #define BUTTON_B 1
@@ -18,6 +19,9 @@ void setup() {
   thermo.begin();
   buttons.begin();
   buzzer.begin();
+  pixels.begin();
+  pixels.clear();   // Wipes the pixel buffer
+  pixels.show();    // Sends "all off" to the LEDs
   Serial.begin(9600);
   for (int i = 0; i < 30; i++) {
   Serial.println();
@@ -70,14 +74,28 @@ void loop() {
   if (tempC >= tempThreshold) {
   Serial.print("TOO HOT: TEMPERATURE IS OR HIGHER THAN 30.00 °C OR 86 °F OR 303.15 K\n");
   buzzer.tone(1500, 1000);
+  for (int i = 0; i < 8; i++) {
+  pixels.set(i, 255, 0, 0, 10);  // Red with brightness 10
+}
+  pixels.show();
 } 
  else if (tempC <= 0.00)
  {
   Serial.print("TOO COLD: TEMPERATURE IS OR LOWER THAN 0.00 °C OR 32 °F OR 273.15 K\n");
   buzzer.tone(1500, 1000);
+  for (int i = 0; i < 8; i++) {
+  pixels.set(i, 0, 0, 255, 10);  // Red with brightness 10
+}
+pixels.show();
+
+  pixels.show();
  }
 else {
   buzzer.noTone();
+  for (int i = 0; i < 8; i++) {
+  pixels.clear();   // Wipes the pixel buffer
+  pixels.show();    // Sends "all off" to the LEDs
+}
 }
 
   delay(1500);

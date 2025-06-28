@@ -72,7 +72,7 @@ void loop() {
   Serial.print("TOO HOT: TEMPERATURE IS OR HIGHER THAN 30.00 °C\n");
   buzzer.tone(1500, 1000);
 } 
- else if (tempC =< 0.00)
+ else if (tempC <= 0.00)
  {
   Serial.print("TOO COLD: TEMPERATURE IS OR LOWER THAN 0.00 °C\n");
   buzzer.tone(1500, 1000);

@@ -38,14 +38,17 @@ void loop() {
 
   // Button handling
   if (buttons.isPressed(BUTTON_A)) {
+    Serial.print("SWITCHING TO °C\n");
     tempUnit = UNIT_C;
     buzzer.tone(880, 100);
     delay(200);
   } else if (buttons.isPressed(BUTTON_B)) {
+    Serial.print("SWITCHING TO °F\n");
     tempUnit = UNIT_F;
     buzzer.tone(1000, 100);
     delay(200);
   } else if (buttons.isPressed(BUTTON_C)) {
+    Serial.print("SWITCHING TO K\n");
     tempUnit = UNIT_K;
     buzzer.tone(1200, 100);
     delay(200);
